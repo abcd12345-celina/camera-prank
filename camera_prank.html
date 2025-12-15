@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Secure Camera Access</title>
+
+<style>
+    body {
+        margin: 0;
+        background: black;
+        color: #00ff00;
+        font-family: Consolas, monospace;
+        text-align: center;
+    }
+
+    .container {
+        margin-top: 80px;
+    }
+
+    h1 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    #status {
+        font-size: 18px;
+        margin: 20px 0;
+    }
+
+    .blink {
+        color: red;
+        font-weight: bold;
+        animation: blink 1s infinite;
+        font-size: 20px;
+    }
+
+    @keyframes blink {
+        50% { opacity: 0; }
+    }
+
+    .info {
+        margin-top: 30px;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .footer {
+        margin-top: 60px;
+        color: #555;
+        font-size: 13px;
+    }
+</style>
+</head>
+
+<body>
+<div class="container">
+    <h1>🔒 Secure Connection Established</h1>
+
+    <p id="status">Initializing system...</p>
+
+    <p class="blink">● REC</p>
+
+    <div class="info">
+        <p>IP Address: 192.168.0.103</p>
+        <p>Device: Webcam HD 720p</p>
+        <p>Stream Status: ACTIVE</p>
+    </div>
+
+    <div class="footer">
+        Simulation mode • No real data accessed
+    </div>
+</div>
+
+<script>
+const messages = [
+    "Initializing system...",
+    "Requesting camera permission...",
+    "Permission granted ✔",
+    "Loading webcam module...",
+    "Streaming live video...",
+    "Sending encrypted data...",
+    "Connection stable ✔"
+];
+
+let index = 0;
+
+setInterval(() => {
+    document.getElementById("status").innerText = messages[index];
+    index = (index + 1) % messages.length;
+}, 1500);
+</script>
+
+</body>
+</html>
